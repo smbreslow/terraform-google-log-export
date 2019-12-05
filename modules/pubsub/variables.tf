@@ -29,6 +29,7 @@ variable "push_subscriber" {
 variable "push_endpoint" {
   description = "The URL locating the endpoint to which messages should be pushed."
   type        = string
+  default     = ""
 }
 
 variable "log_sink_writer_identity" {
