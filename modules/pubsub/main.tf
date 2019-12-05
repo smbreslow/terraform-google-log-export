@@ -24,7 +24,10 @@ locals {
     concat(google_service_account.pubsub_subscriber.*.email, [""]),
     0,
   )
-  pubsub_subscription = element(
+  pubsub_subscription = var.push_subscriber ? element(
+    concat(google_pubsub_subscription.pubsub_subscription_push.*.id, [""]),
+    0,
+  ) : element(
     concat(google_pubsub_subscription.pubsub_subscription.*.id, [""]),
     0,
   )
