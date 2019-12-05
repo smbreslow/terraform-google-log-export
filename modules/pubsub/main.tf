@@ -97,7 +97,7 @@ resource "google_pubsub_subscription" "pubsub_subscription_push" {
   project = var.project_id
   topic   = local.topic_name
   
-  push config {
+  push_config {
     push_endpoint = var.push_endpoint
   }
 }
