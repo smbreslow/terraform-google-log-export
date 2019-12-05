@@ -35,7 +35,7 @@ resource "google_project_iam_member" "cloudasset-viewer" {
   member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
 }
    
-resource "google_project_iam_member" "monitoring-viwer" {
+resource "google_project_iam_member" "monitoring-viewer" {
   project = var.project_id
   role    = "roles/monitoring.viewer"
   member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
