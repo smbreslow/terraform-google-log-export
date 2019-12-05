@@ -15,13 +15,13 @@
  */
 
 variable "create_subscriber" {
-  description = "Whether to create a pull subscription to the topic that was created and used for log entries matching the filter. If 'true', a pull subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic."
+  description = "Whether to create a subscription to the topic that was created and used for log entries matching the filter. If 'true', a pull subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic."
   type        = bool
   default     = false
 }
 
-variable "create_subscriber_push" {
-  description = "Whether to create a push subscription to the topic that was created and used for log entried matching the filter.  If 'true', a push subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic."
+variable "push_subscriber" {
+  description = "Whether to add a push configuration to the subcription. If 'true', a push subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic."
   type        = bool
   default     = false
 }
