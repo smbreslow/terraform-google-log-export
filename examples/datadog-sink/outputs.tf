@@ -33,3 +33,8 @@ output "pubsub_subscriber" {
   description = "Pub/Sub topic subscriber email"
   value       = module.destination.pubsub_subscriber
 }
+
+output "datadog_service_account" {
+  description = "Datadog service account email"
+  value       = module.datadog_viewer
+}
