@@ -17,7 +17,30 @@
 provider "google" {
   version = "~> 2.0"
 }
-
+   
+resource "google_service_account" "datadog-viewer" {
+  account_id = "${var.project_id}-datadog-viewer"
+  project_id = var.project_id
+}
+   
+resource "google_project_iam_member" "compute-viewer" {
+  project = var.project_id
+  role    = "roles/compute.viewer"
+  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+}
+   
+resource "google_project_iam_member" "cloudasset-viewer" {
+  project = var.project_id
+  role    = "roles/cloudasset.viewer"
+  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+}
+   
+resource "google_project_iam_member" "monitoring-viwer" {
+  project = var.project_id
+  role    = "roles/monitoring.viewer"
+  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+}
+   
 module "log_export" {
   source               = "terraform-google-modules/log-export/google"
   destination_uri      = module.destination.destination_uri
