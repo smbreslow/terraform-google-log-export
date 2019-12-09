@@ -52,6 +52,7 @@ module "log_export" {
   log_sink_name        = "test-datadog-sink"
   parent_resource_id   = var.parent_resource_id
   parent_resource_type = "project"
+  unique_writer_identity = true
 }
 
 module "destination" {
