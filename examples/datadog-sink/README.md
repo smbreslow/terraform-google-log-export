@@ -4,7 +4,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
 ## Instructions
 
-1. Fill the required variables in the `terraform.tfvars.sample` file located in the `examples/` directory.
+1. Fill the required variables in the `terraform.tfvars` file located in this directory.
 
 2. Verify the IAM roles for your Terraform service account:
     - `roles/logging.configWriter` on the project (to create the logsink)
@@ -34,6 +34,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 |------|-------------|:----:|:-----:|:-----:|
 | parent\_resource\_id | The ID of the project in which pubsub topic destination will be created. | string | n/a | yes |
 | project\_id | The ID of the project in which the log export will be created. | string | n/a | yes |
+| push\_endpoint | The URL locating the endpoint to which messages should be pushed. | string | n/a | yes |
 
 ## Outputs
 
