@@ -24,11 +24,16 @@ locals {
     concat(google_service_account.pubsub_subscriber.*.email, [""]),
     0,
   )
-  pubsub_subscription = var.push_subscriber ? element(
-    concat(google_pubsub_subscription.pubsub_subscription_push.*.id, [""]),
-    0,
-  ) : element(
+  pubsub_subscription = element(
     concat(google_pubsub_subscription.pubsub_subscription.*.id, [""]),
+    0,
+  )
+  pubsub_push_subscriber = element(
+    concat(google_service_account.pubsub_push_subscriber.*.email, [""]),
+    0,
+  )
+  pubsub_push_subscription = element(
+    concat(google_pubsub_subscription.pubsub_push_subscription.*.id, [""]),
     0,
   )
 }
@@ -88,15 +93,15 @@ resource "google_pubsub_topic_iam_member" "pubsub_viewer_role" {
 }
 
 resource "google_pubsub_subscription" "pubsub_subscription" {
-  count   = (var.create_subscriber && !var.push_subscriber) ? 1 : 0
+  count   = var.create_subscriber ? 1 : 0
   name    = "${local.topic_name}-subscription"
   project = var.project_id
   topic   = local.topic_name
 }
 
-resource "google_pubsub_subscription" "pubsub_subscription_push" {
-  count   = (var.create_subscriber && var.push_subscriber) ? 1 : 0
-  name    = "${local.topic_name}-subscription"
+resource "google_pubsub_subscription" "pubsub_push_subscription" {
+  count   = var.push_subscriber ? 1 : 0
+  name    = "${local.topic_name}-push-subscription"
   project = var.project_id
   topic   = local.topic_name
   
