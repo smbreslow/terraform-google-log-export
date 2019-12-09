@@ -20,7 +20,7 @@ provider "google" {
    
 resource "google_service_account" "datadog-viewer" {
   account_id = "${var.project_id}-datadog-viewer"
-  project_id = var.project_id
+  project = var.project_id
 }
    
 resource "google_project_iam_member" "compute-viewer" {
