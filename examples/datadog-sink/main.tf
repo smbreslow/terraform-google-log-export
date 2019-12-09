@@ -50,7 +50,7 @@ module "log_export" {
 }
 
 module "destination" {
-  source                   = "terraform-google-modules/log-export/google//modules/pubsub"
+  source                   = "https://github.com/smbreslow/terraform-google-log-export.git/modules/pubsub"
   project_id               = var.project_id
   topic_name               = "datadog-sink"
   log_sink_writer_identity = module.log_export.writer_identity
