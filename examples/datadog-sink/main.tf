@@ -20,13 +20,13 @@ provider "google" {
    
 locals {
   datadog_svc = element(google_service_account.datadog-viewer.*.email,0)
-  log_writ = module.log_export.writer_identity
+  log_writ    = module.log_export.writer_identity
 }
    
 resource "google_service_account" "datadog-viewer" {
-  account_id = "${var.project_id}-datadog-viewer"
+  account_id  = "${var.project_id}-datadog-viewer"
   description = "Service account for Datadog monitoring"
-  project = var.project_id
+  project     = var.project_id
 }
   
 resource "google_service_account_key" "datadog-viewer-key" {
@@ -57,11 +57,11 @@ resource "google_project_iam_member" "monitoring-viewer" {
 }
    
 module "log_export" {
-  source               = "../../"
-  destination_uri      = module.destination.destination_uri
-  log_sink_name        = "test-datadog-sink"
-  parent_resource_id   = var.parent_resource_id
-  parent_resource_type = "project"
+  source                 = "../../"
+  destination_uri        = module.destination.destination_uri
+  log_sink_name          = "test-datadog-sink"
+  parent_resource_id     = var.parent_resource_id
+  parent_resource_type   = "project"
   unique_writer_identity = true
 }
 
