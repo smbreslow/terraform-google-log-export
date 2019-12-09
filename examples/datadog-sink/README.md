@@ -48,7 +48,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 | Name | Description |
 |------|-------------|
 | datadog\_service\_account | Service account used by Datadog to monitor GCP resources |
-| pubsub\_subscriber | Pub/Sub topic subscriber email |
+| log\_writer | Service account that publishes Stackdriver logs to Pub/Sub topic |
 | pubsub\_subscription\_name | Pub/Sub topic subscription name |
 | pubsub\_topic\_name | Pub/Sub topic name |
 | pubsub\_topic\_project | Pub/Sub topic project id |
