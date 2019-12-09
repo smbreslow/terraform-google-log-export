@@ -34,7 +34,7 @@ output "pubsub_subscriber" {
   value       = module.destination.pubsub_subscriber
 }
 
-output "datadog_service_account" {
+output "google_service_account" {
   description = "Datadog service account email"
-  value       = datadog_viewer
+  value       = account_id
 }
