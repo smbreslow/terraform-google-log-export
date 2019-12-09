@@ -24,6 +24,7 @@ locals {
    
 resource "google_service_account" "datadog-viewer" {
   account_id = "${var.project_id}-datadog-viewer"
+  description = "Service account for Datadog monitoring"
   project = var.project_id
 }
    
