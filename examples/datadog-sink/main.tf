@@ -47,7 +47,7 @@ resource "google_project_iam_member" "monitoring-viewer" {
 }
    
 module "log_export" {
-  source               = "github.com/smbreslow/terraform-google-log-export.git/"
+  source               = "../../../"
   destination_uri      = module.destination.destination_uri
   log_sink_name        = "test-datadog-sink"
   parent_resource_id   = var.parent_resource_id
@@ -56,7 +56,7 @@ module "log_export" {
 }
 
 module "destination" {
-  source                   = "github.com/smbreslow/terraform-google-log-export.git/modules/pubsub"
+  source                   = "../../../modules/pubsub"
   project_id               = var.project_id
   topic_name               = "datadog-sink"
   log_sink_writer_identity = module.log_export.writer_identity
