@@ -38,7 +38,7 @@ so that all dependencies are met.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | create\_subscriber | Whether to create a subscription to the topic that was created and used for log entries matching the filter. If 'true', a subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic. | bool | `"false"` | no |
-| create\_push\_subscriber | Whether to create a push subscription to the topic that was created and used for log entries matching the filter. If 'true', a push subscription is created with the specified `push\_endpoint` URL. | bool | `"false"` | no |
+| create\_push\_subscriber | Whether to create a push subscription to the topic that was created and used for log entries matching the filter. If 'true', a push subscription is created with the specified `push_endpoint` URL. | bool | `"false"` | no |
 | push\_endpoint | The URL locating the endpoint to which messages should be pushed. | string | `<string>` | no |
 | log\_sink\_writer\_identity | The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module). | string | n/a | yes |
 | project\_id | The ID of the project in which the pubsub topic will be created. | string | n/a | yes |
