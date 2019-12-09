@@ -23,3 +23,8 @@ variable "parent_resource_id" {
   description = "The ID of the project in which pubsub topic destination will be created."
   type        = string
 }
+
+variable "push_endpoint" {
+  description = "The URL locating the endpoint to which messages should be pushed"
+  type        = string
+}
