@@ -25,7 +25,7 @@ variable "create_push_subscriber" {
   type        = bool
   default     = false
 }
-   
+
 variable "push_endpoint" {
   description = "The URL locating the endpoint to which messages should be pushed."
   type        = string

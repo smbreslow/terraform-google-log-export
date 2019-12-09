@@ -17,45 +17,45 @@
 provider "google" {
   version = "~> 2.0"
 }
-   
+
 locals {
-  datadog_svc = element(google_service_account.datadog-viewer.*.email,0)
+  datadog_svc = element(google_service_account.datadog-viewer.*.email, 0)
   log_writ    = module.log_export.writer_identity
 }
-   
+
 resource "google_service_account" "datadog-viewer" {
   account_id  = "${var.project_id}-datadog-viewer"
   description = "Service account for Datadog monitoring"
   project     = var.project_id
 }
-  
+
 resource "google_service_account_key" "datadog-viewer-key" {
   service_account_id = google_service_account.datadog-viewer.name
 }
-  
+
 resource "local_file" "key_export" {
   content_base64 = google_service_account_key.datadog-viewer-key.private_key
-  filename = "${var.key_output_path}/${google_service_account.datadog-viewer.name}.json"
+  filename       = "${var.key_output_path}/${google_service_account.datadog-viewer.name}.json"
 }
-   
+
 resource "google_project_iam_member" "compute-viewer" {
   project = var.project_id
   role    = "roles/compute.viewer"
   member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
-   
+
 resource "google_project_iam_member" "cloudasset-viewer" {
   project = var.project_id
   role    = "roles/cloudasset.viewer"
   member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
-   
+
 resource "google_project_iam_member" "monitoring-viewer" {
   project = var.project_id
   role    = "roles/monitoring.viewer"
   member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
-   
+
 module "log_export" {
   source                 = "../../"
   destination_uri        = module.destination.destination_uri

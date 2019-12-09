@@ -33,7 +33,7 @@ output "datadog_service_account" {
   description = "Datadog service account email"
   value       = local.datadog_svc
 }
-  
+
 output "log_writer" {
   value = local.log_writ
 }
