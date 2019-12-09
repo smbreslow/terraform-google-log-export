@@ -43,11 +43,6 @@ output "pubsub_subscriber" {
   description = "Pub/Sub subscriber email (if any)"
   value       = local.pubsub_subscriber
 }
-   
-output "pubsub_push_subscriber" {
-  description = "Pub/Sub push subscriber email (if any)"
-  value       = local.pubsub_push_subscriber
-}
 
 output "pubsub_subscription" {
   description = "Pub/Sub subscription id (if any)"
