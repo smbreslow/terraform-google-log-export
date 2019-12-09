@@ -18,6 +18,10 @@ provider "google" {
   version = "~> 2.0"
 }
    
+locals {
+  datadog_svc = concat(google_service_account.datadog-viewer.*.email, [""])
+}
+   
 resource "google_service_account" "datadog-viewer" {
   account_id = "${var.project_id}-datadog-viewer"
   project = var.project_id
