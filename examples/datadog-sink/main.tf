@@ -56,5 +56,5 @@ module "destination" {
   log_sink_writer_identity = module.log_export.writer_identity
   create_subscriber        = true
   push_subscriber          = true
-  push_endpoint            = "https://gcp-intake.logs.datadoghq.eu/v1/input/<DATADOG_API_KEY>/"
+  push_endpoint            = var.push_endpoint
 }
