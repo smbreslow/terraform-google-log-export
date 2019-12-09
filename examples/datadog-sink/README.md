@@ -4,7 +4,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
 ## Instructions
 
-1. Fill the required variables in the `terraform.tfvars` file located in this directory.
+1. Fill the required variables in the `terraform.tfvars.sample` file located in this directory.
 
 2. Verify the IAM roles for your Terraform service account:
     - `roles/logging.configWriter` on the project (to create the logsink)
