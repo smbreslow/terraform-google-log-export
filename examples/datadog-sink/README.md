@@ -27,6 +27,13 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
     ![Screen Shot 2019-12-09 at 11.10.22 AM.png](https://github.com/smbreslow/terraform-google-log-export/raw/master/examples/datadog-sink/screenshots/Screen%20Shot%202019-12-09%20at%2011.10.22%20AM.png)
 
+4. Navigate to the [Datadog Google Cloud Integration Tile](http://app.datadoghq.com/account/settings#integrations/google_cloud_platform).
+
+5. On the **Configuration** tab, select *Upload Key File*.
+    ![dd](https://docs.datadoghq.com/images/integrations/google_cloud_platform/ServiceAccountAdded.png?fit=max&auto=format)
+
+6. Press *Install/Update*.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
