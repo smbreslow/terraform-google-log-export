@@ -32,7 +32,7 @@ resource "google_service_account" "datadog-viewer" {
 resource "google_project_iam_member" "compute-viewer" {
   project = var.project_id
   role    = "roles/compute.viewer"
-  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+  member  = "serviceAccount:${google_project_iam_member.datadog-viewer.email}"
 }
    
 resource "google_project_iam_member" "cloudasset-viewer" {
