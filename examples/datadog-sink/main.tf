@@ -19,7 +19,7 @@ provider "google" {
 }
    
 locals {
-  datadog_svc = concat(google_service_account.datadog-viewer.*.email, [""])
+  datadog_svc = google_service_account.datadog-viewer.*.email
 }
    
 resource "google_service_account" "datadog-viewer" {
