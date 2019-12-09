@@ -100,7 +100,7 @@ resource "google_pubsub_subscription" "pubsub_subscription" {
 }
 
 resource "google_pubsub_subscription" "pubsub_push_subscription" {
-  count   = var.push_subscriber ? 1 : 0
+  count   = var.create_push_subscriber ? 1 : 0
   name    = "${local.topic_name}-push-subscription"
   project = var.project_id
   topic   = local.topic_name
