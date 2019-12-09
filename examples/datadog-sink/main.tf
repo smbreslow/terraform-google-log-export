@@ -32,19 +32,19 @@ resource "google_service_account" "datadog-viewer" {
 resource "google_project_iam_member" "compute-viewer" {
   project = var.project_id
   role    = "roles/compute.viewer"
-  member  = "serviceAccount:${google_project_iam_member.datadog-viewer.email}"
+  member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
    
 resource "google_project_iam_member" "cloudasset-viewer" {
   project = var.project_id
   role    = "roles/cloudasset.viewer"
-  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+  member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
    
 resource "google_project_iam_member" "monitoring-viewer" {
   project = var.project_id
   role    = "roles/monitoring.viewer"
-  member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
+  member  = "serviceAccount:${google_service_account.datadog-viewer.email}"
 }
   
 resource "google_pubsub_topic_iam_member" "pubsub_sink_member" {
