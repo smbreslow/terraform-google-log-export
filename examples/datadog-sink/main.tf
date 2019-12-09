@@ -49,7 +49,7 @@ resource "google_project_iam_member" "monitoring-viewer" {
   
 resource "google_pubsub_topic_iam_member" "pubsub_sink_member" {
   project = var.project_id
-  topic   = module.destination.topic_name
+  topic   = module.destination.resource_name
   role    = "roles/pubsub.publisher"
   member  = module.log_export.writer_identity
 }
