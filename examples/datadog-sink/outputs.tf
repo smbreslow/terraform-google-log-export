@@ -36,5 +36,5 @@ output "pubsub_subscriber" {
 
 output "datadog_service_account" {
   description = "Datadog service account email"
-  value       = resource.datadog_viewer
+  value       = datadog_viewer
 }
