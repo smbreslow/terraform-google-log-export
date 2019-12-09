@@ -70,6 +70,6 @@ module "destination" {
   topic_name               = "datadog-sink"
   log_sink_writer_identity = module.log_export.writer_identity
   create_subscriber        = true
-  create_push_subscriber          = true
+  create_push_subscriber   = true
   push_endpoint            = var.push_endpoint
 }
