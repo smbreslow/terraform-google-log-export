@@ -47,7 +47,7 @@ resource "google_project_iam_member" "monitoring-viewer" {
 }
    
 module "log_export" {
-  source               = "../../../"
+  source               = "../../"
   destination_uri      = module.destination.destination_uri
   log_sink_name        = "test-datadog-sink"
   parent_resource_id   = var.parent_resource_id
