@@ -46,6 +46,14 @@ resource "google_project_iam_member" "monitoring-viewer" {
   role    = "roles/monitoring.viewer"
   member  = "serviceAccount:${var.project_id}-datadog-viewer@${var.project_id}.iam.gserviceaccount.com"
 }
+  
+resource "google_pubsub_topic_iam_member" "pubsub_sink_member" {
+  project = var.project_id
+  topic   = module.destination.topic_name
+  role    = "roles/pubsub.publisher"
+  member  = module.log_export.log_sink_writer_identity
+}
+
    
 module "log_export" {
   source               = "../../"
