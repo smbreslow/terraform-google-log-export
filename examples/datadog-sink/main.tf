@@ -56,7 +56,7 @@ module "log_export" {
 }
 
 module "destination" {
-  source                   = "../../..//modules/pubsub"
+  source                   = "../../modules/pubsub"
   project_id               = var.project_id
   topic_name               = "datadog-sink"
   log_sink_writer_identity = module.log_export.writer_identity
