@@ -21,7 +21,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
     You should see similar outputs as the following:
 
-    ![screen shot 2019-01-25 at 1 21 14 pm](https://user-images.githubusercontent.com/9629314/51767833-23459980-20a4-11e9-831c-01a2943ee745.png)
+    ![Screen Shot 2019-12-09 at 11.10.22 AM.png](https://github.com/smbreslow/terraform-google-log-export/raw/master/examples/datadog-sink/screenshots/Screen%20Shot%202019-12-09%20at%2011.10.22%20AM.png)
 
 3. In the GCP console, under `IAM > Service Accounts`, find the Pub/Sub subscriber service account and create a set of JSON credentials:
 
