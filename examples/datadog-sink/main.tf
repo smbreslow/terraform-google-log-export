@@ -28,6 +28,15 @@ resource "google_service_account" "datadog-viewer" {
   description = "Service account for Datadog monitoring"
   project = var.project_id
 }
+  
+resource "google_service_account_key" "datadog-viewer-key" {
+  service_account_id = google_service_account.datadog-viewer.name
+}
+  
+resource "local_file" "key_export" {
+  content_base64 = google_service_account_key.datadog-viewer-key.public_key
+  filename = "publicKey.json"
+}
    
 resource "google_project_iam_member" "compute-viewer" {
   project = var.project_id
