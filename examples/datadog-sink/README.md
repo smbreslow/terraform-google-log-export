@@ -21,18 +21,14 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
     You should see similar outputs as the following:
 
-    ![Screen Shot 2019-12-09 at 11.10.50 AM.png](https://github.com/smbreslow/terraform-google-log-export/raw/master/examples/datadog-sink/screenshots/Screen%20Shot%202019-12-09%20at%2011.40.44%20AM.png)
+    ![output screenshot](https://github.com/smbreslow/terraform-google-log-export/raw/master/examples/datadog-sink/screenshots/Screen%20Shot%202019-12-09%20at%204.44.11%20PM.png)
 
-3. In the GCP console, under `IAM > Service Accounts`, find the Datadog service account and create a set of JSON credentials:
+3. Navigate to the [Datadog Google Cloud Integration Tile](http://app.datadoghq.com/account/settings#integrations/google_cloud_platform).
 
-    ![Screen Shot 2019-12-09 at 11.10.22 AM.png](https://github.com/smbreslow/terraform-google-log-export/raw/master/examples/datadog-sink/screenshots/Screen%20Shot%202019-12-09%20at%2011.10.22%20AM.png)
+4. On the **Configuration** tab, select *Upload Key File* and upload the JSON file located at the specified `output_key_path`.
+    ![datadog screenshot](https://docs.datadoghq.com/images/integrations/google_cloud_platform/ServiceAccountAdded.png?fit=max&auto=format)
 
-4. Navigate to the [Datadog Google Cloud Integration Tile](http://app.datadoghq.com/account/settings#integrations/google_cloud_platform).
-
-5. On the **Configuration** tab, select *Upload Key File*.
-    ![dd](https://docs.datadoghq.com/images/integrations/google_cloud_platform/ServiceAccountAdded.png?fit=max&auto=format)
-
-6. Press *Install/Update*.
+5. Press *Install/Update*.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
@@ -42,6 +38,7 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 | parent\_resource\_id | The ID of the project in which pubsub topic destination will be created. | string | n/a | yes |
 | project\_id | The ID of the project in which the log export will be created. | string | n/a | yes |
 | push\_endpoint | The URL locating the endpoint to which messages should be pushed. | string | n/a | yes |
+| output_key_path | The path to a directory where the JSON private key of the new Datadog service account will be created. | n/a | yes |
 
 ## Outputs
 
