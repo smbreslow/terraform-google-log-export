@@ -35,7 +35,7 @@ resource "google_service_account_key" "datadog-viewer-key" {
 
 resource "local_file" "key_export" {
   content_base64 = google_service_account_key.datadog-viewer-key.private_key
-  filename       = "${var.key_output_path}/${google_service_account.datadog-viewer.name}.json"
+  filename       = var.key_output_path
 }
 
 resource "google_project_iam_member" "compute-viewer" {
