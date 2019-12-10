@@ -32,5 +32,5 @@ variable "push_endpoint" {
 variable "key_output_path" {
   description = "The path to a directory where the JSON private key of the new Datadog service account will be created."
   type        = string
-  default     = "~"
+  default     = "..\datadog-sink\${var.project_id}-datadog-sa-key.json"
 }
