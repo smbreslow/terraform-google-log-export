@@ -35,17 +35,17 @@ The solution helps you set up a log-streaming pipeline from Stackdriver Logging 
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| key\_output\_path | The path to a directory where the JSON private key of the new Datadog service account will be created. | string | `"../datadog-sink/datadog-sa-key.json"` | no |
 | parent\_resource\_id | The ID of the project in which pubsub topic destination will be created. | string | n/a | yes |
 | project\_id | The ID of the project in which the log export will be created. | string | n/a | yes |
 | push\_endpoint | The URL locating the endpoint to which messages should be pushed. | string | n/a | yes |
-| output_key_path | The path to a directory where the JSON private key of the new Datadog service account will be created. | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| datadog\_service\_account | Service account used by Datadog to monitor GCP resources |
-| log\_writer | Service account that publishes Stackdriver logs to Pub/Sub topic |
+| datadog\_service\_account | Datadog service account email |
+| log\_writer |  |
 | pubsub\_subscription\_name | Pub/Sub topic subscription name |
 | pubsub\_topic\_name | Pub/Sub topic name |
 | pubsub\_topic\_project | Pub/Sub topic project id |
